@@ -1,0 +1,61 @@
+<test>
+
+	<bean id="employee" class="com.example.spring.Employee">
+		<property name="sal" ref="salary" />
+	</bean>
+	<bean id="salary" class="com.example.spring.Salary"></bean>
+
+
+
+
+	<bean id="employee" class="com.example.spring.Employee">
+		<property name="nickname" value="abcd" />			<!-- inject string -->
+		<property name="value" value="10" />				<!-- inject string -->
+		
+		<!-- inject list of primitives -->
+		<property name="siblings">
+			<list>
+				<value>John</value>
+				<value>Rose</value>
+			</list>
+		</property>
+		
+		<!-- inject list of beans -->
+		<property name="siblings">
+			<list>
+				<ref bean="salary1"></ref>
+				<ref bean="salary2"></ref>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="salary1" class="com.example.spring.Salary1"></bean>
+	<bean id="salary2" class="com.example.spring.Salary2"></bean>
+	
+	
+	
+	
+	<bean id="employee" class="com.example.spring.Employee">
+		<!-- inject map of primitives -->
+		<property name="siblings">
+			<map>
+				<entry key="key1" value="val1" />
+				<entry key="key2" value="val2" />
+			</map>
+		</property>
+		
+		<!-- inject map of beans -->
+		<property name="siblings">
+			<map>
+				<entry key-ref="key-ref-1" value="value-ref-1" />
+				<entry key-ref="key-ref-2" value="value-ref-2" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="key-ref-1" class="com.example.spring.KeyRef1"></bean>
+	<bean id="key-ref-2" class="com.example.spring.KeyRef2"></bean>
+	<bean id="value-ref-1" class="com.example.spring.ValueRef1"></bean>
+	<bean id="value-ref-2" class="com.example.spring.ValueRef2"></bean>
+	
+</test>

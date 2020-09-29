@@ -1,0 +1,16 @@
+package com.example.spring.core.d_javaBased.q_profile;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
+
+@Configuration
+@Profile("DEV")
+public class AppConfigDEV {
+	
+	@Bean
+	public Employee empFactory() {
+		return new Employee("Developer");
+	}
+}
